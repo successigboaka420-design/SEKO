@@ -1,0 +1,139 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "User Profile",
+      "description": "Information about the user for personalization",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "name": { "type": "string" },
+        "age": { "type": "number" },
+        "gender": { "type": "string" },
+        "interests": { "type": "array", "items": { "type": "string" } },
+        "personality": { "type": "string" },
+        "moodPreference": { "type": "string" },
+        "robotConfig": {
+          "type": "object",
+          "properties": {
+            "color": { "type": "string" },
+            "eyeStyle": { "type": "string" },
+            "voice": { "type": "string" },
+            "voiceGender": { "type": "string", "enum": ["male", "female"] },
+            "language": { "type": "string" },
+            "accessory": { "type": "string" },
+            "skin": { "type": "string", "enum": ["default", "chrome", "gold", "neon", "carbon"] },
+            "palette": { "type": "string", "enum": ["purple", "blue", "green", "red", "yellow", "cyberpunk"] }
+          }
+        },
+        "premium": { "type": "boolean" },
+        "ghostProtocol": { "type": "boolean" },
+        "synapticBoost": { "type": "boolean" },
+        "matrixAesthetic": { "type": "string", "enum": ["cyberpunk", "minimal", "void"] },
+        "voiceRecordings": { "type": "array", "items": { "type": "string" } }
+      },
+      "required": ["userId", "name"]
+    },
+    "ChatMessage": {
+      "title": "Chat Message",
+      "description": "An individual message in a chat session",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "role": { "type": "string", "enum": ["user", "assistant"] },
+        "content": { "type": "string" },
+        "timestamp": { "type": "string", "format": "date-time" },
+        "emoji": { "type": "string" }
+      },
+      "required": ["userId", "role", "content", "timestamp"]
+    },
+    "Task": {
+      "title": "Task",
+      "description": "A productivity task for the user",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "completed": { "type": "boolean" },
+        "dueDate": { "type": "string", "format": "date-time" },
+        "priority": { "type": "string", "enum": ["low", "medium", "high"] }
+      },
+      "required": ["userId", "title"]
+    },
+    "JournalEntry": {
+      "title": "Journal Entry",
+      "description": "User thoughts and progress",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "content": { "type": "string" },
+        "tags": { "type": "array", "items": { "type": "string" } },
+        "sentiment": {
+          "type": "object",
+          "properties": {
+            "score": { "type": "number" },
+            "label": { "type": "string" }
+          }
+        },
+        "insights": { "type": "string" },
+        "mood": { "type": "string" },
+        "timestamp": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "content", "timestamp"]
+    },
+    "Memory": {
+      "title": "Memory",
+      "description": "A specific piece of information SEKO remembers about the user",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "content": { "type": "string" },
+        "category": { "type": "string", "enum": ["preference", "factual", "emotional", "goal"] },
+        "timestamp": { "type": "string", "format": "date-time" },
+        "importance": { "type": "number" }
+      },
+      "required": ["userId", "content", "timestamp"]
+    },
+    "ChatSession": {
+      "title": "Chat Session",
+      "description": "A container for a conversation session",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "lastMessage": { "type": "string" },
+        "updatedAt": { "type": "string", "format": "date-time" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "title", "updatedAt", "createdAt"]
+    }
+  },
+  "firestore": {
+    "users/{userId}": {
+      "schema": "UserProfile",
+      "description": "The user profile document"
+    },
+    "users/{userId}/sessions": {
+      "schema": "ChatSession",
+      "description": "Chat sessions for a specific user"
+    },
+    "users/{userId}/sessions/{sessionId}/messages": {
+      "schema": "ChatMessage",
+      "description": "Individual messages within a chat session"
+    },
+    "users/{userId}/tasks": {
+      "schema": "Task",
+      "description": "Tasks for a specific user"
+    },
+    "users/{userId}/journal": {
+      "schema": "JournalEntry",
+      "description": "Journal entries for a specific user"
+    },
+    "users/{userId}/memories": {
+      "schema": "Memory",
+      "description": "A collection of facts SEKO has learned about the user"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "SEKO",
+  "description": "Futuristic AI companion platform featuring luxury glassmorphism, advanced AI intelligence, and personalized lifestyle assistance.",
+  "requestFramePermissions": ["camera", "microphone"],
+  "majorCapabilities": []
+}
