@@ -1,0 +1,66 @@
+SEKO
+
+iOS 26 ExperienceFEATURES
+
+Liquid Glass          ✓
+System UI             ✓
+Lock Screen           ○
+Control Center        ○
+Notifications         ○
+Dynamic Island        ○
+App UI                ○
+
+Version 1.0.0
+
+
+WHAT SEKO BRINGS
+
+• iOS 26-inspired Liquid Glass interface
+• Redesigned system UI
+• Dynamic translucent surfaces
+• Modern animations and transitions
+• iOS 26-inspired Lock Screen
+• Control Center redesign
+• Notification redesign
+• Dynamic Island-style interface
+• Modern system controls
+• iOS 26-inspired supported-app interfaces
+
+
+WHAT SEKO USES
+
+• UIKit
+• Core Animation
+• Core Graphics
+• Jailbreak tweak injection
+• Seko's custom Glass Engine
+
+
+BENEFITS
+
+• One tweak instead of installing many separate UI tweaks
+• Centralized Seko settings
+• Toggle individual features
+• Consistent visual design
+• Designed specifically for supported older iOS devices
+
+
+COMPATIBILITY
+
+Device:
+iPhone X and supported devices
+
+Jailbreak:
+Rootless jailbreak
+
+Target:
+iOS 16.x and compatible versions
+
+Status:
+Seko 1.0.0
+
+
+DISCLAIMER
+
+Seko recreates the iOS 26-inspired experience.
+It does not install Apple's actual iOS 26 system software.
